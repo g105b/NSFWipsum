@@ -1,0 +1,46 @@
+$font-url-base: "/asset/font/ubuntu/";
+$font-name-base: $font-url-base + ubuntu;
+
+$font-name-list: (
+  "Ubuntu Condensed": (
+    "variation-map": (
+      "c": (400, normal),
+    )
+  ),
+  "Ubuntu": (
+    "variation-map": (
+      "l": (300, normal),
+      "li": (300, italic),
+      "r": (400, normal),
+      "ri": (400, italic),
+      "b": (700, normal),
+      "bi": (700, italic),
+    )
+  ),
+  "Ubuntu Mono": (
+    "variation-map": (
+      "mono": (400, normal),
+      "monoi": (400, italic),
+      "monob": (700, normal),
+      "monobi": (700, italic),
+    )
+  ),
+);
+
+@each $font-name in map-keys($font-name-list) {
+  $map: map-get($font-name-list, $font-name);
+  @each $variation in map-get($map, "variation-map") {
+
+    @font-face {
+      font-family: $font-name;
+      $url: $font-name-base
+        + "-"
+        + nth($variation, 1)
+        + "-webfont";
+      src: url($url + ".woff") format("woff");
+      $detail: nth($variation, 2);
+      font-weight: nth($detail, 1);
+      font-style: nth($detail, 2);
+    }
+  }
+}

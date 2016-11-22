@@ -1,0 +1,13 @@
+.m-generate-form {
+	[name=uncensored] {
+		~.legal {
+			display: none;
+
+			font-size: 0.75rem;
+		}
+
+		&:checked~.legal {
+			display: block;
+		}
+	}
+}

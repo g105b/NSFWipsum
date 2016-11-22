@@ -1,0 +1,16 @@
+form {
+	>label {
+		display: block;
+		margin: 1rem 0;
+
+		>span {
+			display: block;
+		}
+
+		>input[type=checkbox],
+		>input[type=radio] {
+			float: left;
+			margin-right: 1rem;
+		}
+	}
+}

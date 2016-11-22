@@ -1,2 +1,46 @@
 <!doctype html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NSFWipsum : Profane dummy text generator!</title>
+<link rel="stylesheet" href="/style/nsfwipsum.scss" />
+
 <h1>NSFWipsum</h1>
+<h2>Profane dummy text generator!</h2>
+
+<form class="m-generate-form">
+	<label>
+		<span>Number of paragraphs</span>
+		<input name="p" type="number" value="5" required />
+	</label>
+	<label>
+		<input name="uncensored" type="checkbox" />
+		<span>Uncensored profanity</span>
+		<div class="legal">
+			<p>The owner of this website accepts no responsibility for offence caused by reading/using uncensored content served. All content is user-contributed and unedited as supplied from <a href="http://www.tibz.farm">The Tibz Farm</a>. Use at your own risk!
+			</p>
+		</div>
+	</label>
+
+	<button name="do" value="generate">Generate</button>
+</form>
+
+<section id="output">
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</section>
