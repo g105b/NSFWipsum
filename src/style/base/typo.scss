@@ -1,6 +1,5 @@
 body {
 	font-family: "Ubuntu Mono", monospace;
-	transition: font-size 0.5s ease-in-out;
 
 	@media(min-width: $break1) {
 		font-size: 1.1em;
