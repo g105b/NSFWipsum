@@ -1,0 +1,13 @@
+.m-output {
+	&.censored {
+		.profane {
+			background: black;
+			color: black;
+
+			&::selection {
+				background: black;
+				color: black;
+			}
+		}
+	}
+}

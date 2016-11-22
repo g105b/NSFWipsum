@@ -8,6 +8,7 @@ class Index extends \Gt\Page\Logic {
 public function go() {
 	$this->submitDefaultValues();
 	$this->outputParagraphs($_GET["p"], $_GET["uncensored"] ?? false);
+	$this->markCensorship($_GET["uncensored"] ?? false);
 }
 
 private function submitDefaultValues() {
@@ -40,6 +41,13 @@ private function outputParagraphs(int $count, bool $uncensored = false) {
 		$paragraphElement = $this->template->get("paragraph");
 		$generator->addWordsToParagraphElement($words, $paragraphElement);
 		$paragraphElement->insertTemplate();
+	}
+}
+
+private function markCensorship(bool $uncensored = false) {
+	if(!$uncensored) {
+		$outputElement = $this->document->querySelector(".m-output");
+		$outputElement->classList->add("censored");
 	}
 }
 
