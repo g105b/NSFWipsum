@@ -1,8 +1,8 @@
 select
-	word
+	upper(word) as content
 
 from
 	tibz
 
 order by rand()
-limit 100
+limit 1
