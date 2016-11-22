@@ -681,12 +681,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PhpGt/Database.git",
-                "reference": "1ac894e78dcebfbe00958bf81f3c4f2b898f3d0c"
+                "reference": "6a77b35ad74fd17d38b6a19dc13c912740d215de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PhpGt/Database/zipball/1ac894e78dcebfbe00958bf81f3c4f2b898f3d0c",
-                "reference": "1ac894e78dcebfbe00958bf81f3c4f2b898f3d0c",
+                "url": "https://api.github.com/repos/PhpGt/Database/zipball/6a77b35ad74fd17d38b6a19dc13c912740d215de",
+                "reference": "6a77b35ad74fd17d38b6a19dc13c912740d215de",
                 "shasum": ""
             },
             "require": {
@@ -712,7 +712,7 @@
                 }
             ],
             "description": "Separates database logic through a simple interface.",
-            "time": "2016-11-21 15:36:17"
+            "time": "2016-11-22 17:55:30"
         },
         {
             "name": "phpgt/webengine",
