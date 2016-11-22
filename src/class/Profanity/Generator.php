@@ -39,10 +39,14 @@ public function generateParagraphWords():array {
 		self::WORDS_IN_PARAGRAPH_MAX
 	);
 
+	$lastProfanityContent = "";
+
 	while(count($words) < $wordsInParagraph) {
-		$profanity = $this->db["profanity"]->getRandomProfanity();
+		$profanityContent = $this->db["profanity"]
+			->getRandomProfanity()["content"];
 		$profanityContent = $this->addRandomEndingPunctuation(
-			$profanity["content"]);
+			$profanityContent);
+		$lastProfanityContent = $profanityContent;
 		$profanityWords = explode(" ", $profanityContent);
 
 		$words = array_merge(
@@ -52,7 +56,19 @@ public function generateParagraphWords():array {
 		);
 	}
 
+	$words = array_map([$this, "fixParagraphWords"], $words);
+	$words = $this->fixSentenceCase($words);
+
 	return $words;
+}
+
+public function fixParagraphWords(string $word) {
+	if($word === "i"
+	|| strpos($word, "i'")) {
+		$word = ucfirst($word);
+	}
+
+	return $word;
 }
 
 public function generateLoremWords() {
@@ -63,7 +79,7 @@ public function generateLoremWords() {
 	);
 
 	while(count($words) < $wordsInLorem) {
-		$words []= Lorem::getRandom();
+		$words []= strtolower(Lorem::getRandom());
 	}
 
 	return $words;
@@ -109,6 +125,22 @@ private function addRandomEndingPunctuation(string $sentence):string {
 	}
 
 	return $sentence . $ending;
+}
+
+private function fixSentenceCase(array $words):array {
+	$lastCharacterOfLastWord = "";
+	$sentenceEndingCharacters = [".", "?", "!", ":"];
+
+	foreach($words as $i => $word) {
+		if(empty($lastCharacterOfLastWord)
+		|| in_array($lastCharacterOfLastWord, $sentenceEndingCharacters)) {
+			$words[$i] = ucfirst($word);
+		}
+
+		$lastCharacterOfLastWord = substr($word, -1);
+	}
+
+	return $words;
 }
 
 }#

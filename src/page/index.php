@@ -36,7 +36,7 @@ private function outputParagraphs(int $count, bool $uncensored = false) {
 		$words = $generator->generateParagraphWords();
 
 		if($i === 0) {
-			array_unshift($words, "LOREM", "IPSUM");
+			array_unshift($words, "Lorem", "ipsum");
 		}
 
 		$paragraphElement = $this->template->get("paragraph");

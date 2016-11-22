@@ -1,5 +1,5 @@
 select
-	upper(word) as content
+	lower(word) as content
 
 from
 	tibz
