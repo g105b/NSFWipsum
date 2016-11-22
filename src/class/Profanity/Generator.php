@@ -1,12 +1,25 @@
 <?php
 namespace NSFWipsum\Profanity;
 
+use NSFWipsum\Settings\Config;
+use Gt\Database\Connection\Settings;
+use Gt\Database\DatabaseClient;
 use Gt\Dom\Node;
+use Gt\Core\Path;
 
 class Generator {
 
 public function __construct() {
+	$settings = new Settings(
+		Path::get(Path::ROOT) . "/src/query",
+		Config::get("database.source"),
+		Config::get("database.name"),
+		Config::get("database.hostname"),
+		Config::get("database.username"),
+		Config::get("database.password")
+	);
 
+	$this->db = new DatabaseClient($settings);
 }
 
 public function generateParagraphWords():array {
