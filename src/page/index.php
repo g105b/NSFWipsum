@@ -9,6 +9,7 @@ public function go() {
 	$this->submitDefaultValues();
 	$this->outputParagraphs($_GET["p"], $_GET["uncensored"] ?? false);
 	$this->markCensorship($_GET["uncensored"] ?? false);
+	$this->fillFormFields($_GET);
 }
 
 private function submitDefaultValues() {
@@ -48,6 +49,24 @@ private function markCensorship(bool $uncensored = false) {
 	if(!$uncensored) {
 		$outputElement = $this->document->querySelector(".m-output");
 		$outputElement->classList->add("censored");
+	}
+}
+
+private function fillFormFields(array $data) {
+	foreach ($data as $key => $value) {
+		$element = $this->document->querySelector("[name=$key]");
+
+		if(!$element) {
+			continue;
+		}
+
+		if($element->type === "checkbox"
+		|| $element->type === "radio") {
+			$element->checked = true;
+		}
+		else {
+			$element->value = $value;
+		}
 	}
 }
 
